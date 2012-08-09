@@ -12,8 +12,7 @@ get '*' do
     doc = Nokogiri::HTML(body)
     doc.traverse do |node|
       if node.text?
-        arr = node.content.split ' '
-        node.content = arr.collect {|w| Ermahgerd.ternslert(w.upcase)}.join(' ')
+        node.content = Ermahgerd.ternslert_terkst node.content
       end
     end
     body = doc.to_html
@@ -29,8 +28,46 @@ get '*' do
 end
 
 module Ermahgerd
+  def self.ternslert_terkst perergref
+    werds = perergref.split ' '
+    werds = werds.collect do |werd|
+      if werd.match /[A-z]/
+        ternslerted = ternslert(werd.upcase).downcase
+
+        if werd[0].match /[^A-z]/
+          ternslerted = werd[0] + ternslerted
+        end
+
+        if werd[-1].match /[^A-z]/
+          ternslerted += werd[-1]
+        end
+
+        if werd[0].match /[A-Z]/
+          ternslerted[0] = ternslerted[0].upcase
+        end
+
+        ternslerted
+      else
+        werd
+      end
+    end
+
+    werds = werds.join ' '
+
+    if perergref[0] == ' '
+      werds = ' ' + werds
+    end
+
+    if perergref[-1] == ' '
+      werds += ' '
+    end
+    werds
+  end
+
   def self.ternslert werd
     case werd
+    when 'UI/UX'
+      return 'ER/ERKS'
     when 'AWESOME'      
       return 'ERSUM'
     when 'BANANA'       
