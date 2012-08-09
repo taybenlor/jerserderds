@@ -109,6 +109,8 @@ module Ermahgerd
       return 'JERSER'
     when 'DODDS'
       return 'DERDS'
+    when 'SQUARE'
+      return 'SKWER'
     end
     
     erginerl = werd
