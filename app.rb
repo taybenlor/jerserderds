@@ -59,6 +59,10 @@ module Ermahgerd
           ternslerted += werd[-1]
         end
 
+        if werd.match /^[^a-z]*$/
+          ternslerted = ternslerted.upcase
+        end
+
         if werd[0].match /[A-Z]/
           ternslerted[0] = ternslerted[0].upcase
         end
@@ -84,7 +88,7 @@ module Ermahgerd
   def self.ternslert werd
     case werd
     when 'UI/UX'
-      return 'ER/ERKS'
+      return 'UER/UERX'
     when 'AWESOME'      
       return 'ERSUM'
     when 'BANANA'       
@@ -117,6 +121,20 @@ module Ermahgerd
       return 'DERDS'
     when 'SQUARE'
       return 'SKWER'
+    when 'BASED'
+      return 'BERSED'
+    when 'UI'
+      return 'UER'
+    when 'USING'
+      return 'URSERN'
+    when 'FACEBOOK'
+      return 'FERCEBERK'
+    when 'ALONG'
+      return 'ERLERNG'
+    when 'TUNES'
+      return 'TURNES'
+    when 'LIMITED'
+      return 'LERMERTERD'
     end
     
     erginerl = werd
@@ -143,7 +161,7 @@ module Ermahgerd
     werd = werd.gsub /ERH/, 'ER'
 
     # MY -> MAH
-    werd = werd.gsub /MER/, 'MAH'
+    #werd = werd.gsub /MER/, 'MAH'
 
     # FALLING -> FERLIN
     werd = werd.gsub /ERNG/, 'IN'
@@ -160,6 +178,8 @@ module Ermahgerd
 
     # Reduce duplicate letters
     werd = werd.gsub /[^\w\s]|(.)(?=\1)/i, ''
+
+    werd = werd.gsub /^DA$/, 'DER'
 
     # YELLOW -> YERLER -> YERLO
     if erginerl.match(/LOW$/) && werd.match(/LOW$/)
