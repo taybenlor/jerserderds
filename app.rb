@@ -59,7 +59,7 @@ module Ermahgerd
           ternslerted += werd[-1]
         end
 
-        if werd.match /^[^a-z]*$/
+        if werd.match(/^[^a-z]*$/) && werd.length != 1
           ternslerted = ternslerted.upcase
         end
 
