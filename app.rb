@@ -147,6 +147,10 @@ module Ermahgerd
       werd = werd.gsub /LOW$/, 'LO'
     end
 
+    if erginerl.match(/CE$/) && werd.match /C$/
+      werd = werd.gsub /C$/, 'S'
+    end
+
     werd
   end
 end
