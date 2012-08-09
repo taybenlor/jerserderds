@@ -32,6 +32,17 @@ module Ermahgerd
     werds = perergref.split ' '
     werds = werds.collect do |werd|
       if werd.match /[A-z]/
+        #hacky special case treatment
+        if werd.match /-/
+          mer_werds = werd.split '-'
+          mer_werds = mer_werds.collect {|werd| ternslert_terkst werd}
+          next mer_werds.join('-')
+        end
+
+        if werd.upcase.match /FRANCISCO$/
+          next 'Sern Frernsersker'
+        end
+
         ternslerted = ternslert(werd.upcase).downcase
 
         if werd[0].match /[^A-z]/
