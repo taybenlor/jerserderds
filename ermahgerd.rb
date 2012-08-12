@@ -115,6 +115,8 @@ module Ermahgerd
       return 'CC/'
     when 'METICULOUS'
       return 'MERTERCERLERS'
+    when "I'M"
+      return "ERM"
     end
     
     if werd.match /[Mm]+\.*/
