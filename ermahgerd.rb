@@ -113,6 +113,8 @@ module Ermahgerd
       return '@JERSERDERDS'
     when 'CC/'
       return 'CC/'
+    when 'METICULOUS'
+      return 'MERTERCERLERS'
     end
     
     if werd.match /[Mm]+\.*/
